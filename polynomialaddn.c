@@ -70,10 +70,10 @@ int i=0,j=0,k=0;
     printf("Sum of first and second polynomial \n");
     for(i=0;i<n3;i++)
     {
-      printf("%dx^%d",p3[i].coef,p3[i].expo);
+      printf(" (%dx^%d) ",p3[i].coef,p3[i].expo);
       if(i<n3-1)
       {
-        printf("\t+\t");
+        printf("+");
       }
     }
 
