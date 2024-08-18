@@ -28,27 +28,27 @@ inp(p2,n2);
 int i=0,j=0,k=0;
     while (i<n1&&j<n2)
     {
-         if(p1[i].expo>p2[j].expo)
+         if(p1[i].expo==p2[j].expo)
         {   
-             p3[k].coef=p1[i].coef;
+             p3[k].coef=p1[i].coef+p2[j].coef;
              p3[k].expo=p1[i].expo;
              i++;
+             j++;  
              k++;
         }
         else if(p1[i].expo<p2[j].expo)
         {
-             p3[k].coef=p1[j].coef;
-             p3[k].expo=p1[j].expo;
+             p3[k].coef=p2[j].coef;
+             p3[k].expo=p2[j].expo;
              j++;
              k++;   
          }
          else
          {
-             p3[k].coef=p1[i].coef+p2[j].coef;
+             p3[k].coef=p1[i].coef;
              p3[k].expo=p1[i].expo;
-             j++;
-             k++; 
-             i++;  
+             i++;
+             k++;
 
          }
     }
@@ -61,8 +61,8 @@ int i=0,j=0,k=0;
     }
     while(j<n2)
     {
-         p3[k].coef=p1[j].coef;
-         p3[k].expo=p1[j].expo;
+         p3[k].coef=p2[j].coef;
+         p3[k].expo=p2[j].expo;
          j++;
          k++;
     }
@@ -71,7 +71,7 @@ int i=0,j=0,k=0;
     for(i=0;i<n3;i++)
     {
       printf("%dx^%d",p3[i].coef,p3[i].expo);
-      if(i+1<k)
+      if(i<n3-1)
       {
         printf("\t+\t");
       }
