@@ -1,15 +1,15 @@
 #include<stdio.h>
 
 void main() {
-    int n, i, key, flag = 0, count = 0; 
-
+    int n, i, key, flag = 0, count = 0, space=0; 
+    space=6*sizeof(int);
     
     printf("Enter the limit of array: "); 
     scanf("%d", &n);
     count += 2;  
 
     int a[n];  
-
+    space+=n*sizeof(int);
     
     printf("Enter the elements of array: \n");
     count++;
@@ -39,15 +39,16 @@ void main() {
 
     if (flag == 1)
     { 
-        printf("The search key %d is found at %dth position", key, i + 1);
+        printf("The search key %d is found at %dth position\n", key, i + 1);
         count += 2;  
     }
     else
     { 
-        printf("The search key %d is not found", key);
+        printf("The search key %d is not found\n", key);
         count += 2;  
     }
-
+    printf("Space Complexity : %d\n",space);
     count++;
-    printf(" %d times", count);  // 
+    count++;
+    printf("Times Complexity : %d\n",count);  
 }
