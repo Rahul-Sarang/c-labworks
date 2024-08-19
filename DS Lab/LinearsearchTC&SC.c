@@ -1,6 +1,9 @@
 #include<stdio.h>
 
-void main() {
+void main()
+ {
+    
+
     int n, i, key, flag = 0, count = 0, space=0; 
     space=6*sizeof(int);
     
