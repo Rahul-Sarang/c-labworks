@@ -1,32 +1,53 @@
 #include<stdio.h>
-void main()
-{
-   int n,i,key,flag=0,count=0;                       
-   printf("Enter the limit of array :"); count++;
-   scanf("%d",&n);count++;
-   int a[n];
-   printf("Enter the elements of array : \n"); count++;
-   for(i=0;i<n;i++)
-   { count++;
-     scanf("%d",&a[i]);count++;
-   }
-   printf("Enter the search key :");count++;
-   scanf("%d",&key);count++;
-   for(i=0;i<n;i++) 
-   {count++;
-     if(a[i]==key)
-     {count++;
-      flag=1;count++;
-      break;count++;
-     }   
-   }
-   if(flag==1) 
-     {count++;
-     printf("The search key %d is found at %d th postion",key,i+1);count++;
-     }  
-   else
-     {count++;
-     printf("The search key %d is not found",key);count++;
-     }
-      printf(" %d time",count);
-}    
+
+void main() {
+    int n, i, key, flag = 0, count = 0; 
+
+    
+    printf("Enter the limit of array: "); 
+    scanf("%d", &n);
+    count += 2;  
+
+    int a[n];  
+
+    
+    printf("Enter the elements of array: \n");
+    count++;
+    for (i = 0; i < n; i++)
+    { 
+        scanf("%d", &a[i]);
+        count += 2;  
+    }
+    count ++;  
+
+    
+    printf("Enter the search key: "); 
+    scanf("%d", &key);
+    count += 2;  
+
+    
+    for (i = 0; i < n; i++) 
+    { 
+        if (a[i] == key)
+        { 
+            flag = 1; 
+            break;  
+        }
+        count += 3;  
+    }
+    count++;  
+
+    if (flag == 1)
+    { 
+        printf("The search key %d is found at %dth position", key, i + 1);
+        count += 2;  
+    }
+    else
+    { 
+        printf("The search key %d is not found", key);
+        count += 2;  
+    }
+
+    count++;
+    printf(" %d times", count);  // 
+}
