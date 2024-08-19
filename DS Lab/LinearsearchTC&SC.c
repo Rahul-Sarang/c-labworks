@@ -34,7 +34,7 @@ void main()
             flag = 1; 
             break;  
         }
-        count += 3;  
+        count += 4;  
     }
     count++;  
 
