@@ -21,14 +21,13 @@ void main()
     count += 2;  
     for (i = 0; i < n; i++) 
     {   
-        count++;
         if (a[i] == key)
         {   
-            flag = 1; 
-            count+=3;
+            flag = 1;  
             break;  
         }
-         
+        count+=4;
+
     }
     count++;  
     if (flag == 1)
@@ -45,5 +44,5 @@ void main()
     count++;
     count++;
     printf("Times Complexity : %d\n",count);  
-    
+
 }

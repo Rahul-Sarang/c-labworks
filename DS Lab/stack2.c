@@ -1,12 +1,13 @@
 #include<stdio.h>
-#include<stdlib.h>4     
+#include<stdlib.h> 
 #include<stdbool.h>
-
 
 int stack[100];
 int top=-1;
-int isFull(int size){if(top ==size-1){return 0;}else{return 1;}return true;}
-int isEmpty(int size){ if(top ==size-1){return 0;}else{return 1;}return true;}
+int isFull(int size){if(top ==size-1){return 0;}
+                     else{return 1;}return true;}
+int isEmpty(int size){ if(top ==size-1){return 0;}
+                    else{return 1;}return true;}
 
 void push(int size,int data){
     if(top==size-1){printf("Stack is overflow");return ;}
@@ -14,11 +15,11 @@ void push(int size,int data){
     stack[top]=data;
     printf("The Element is added successfully\n");}
 }
-
 int pop(){
      if(top==-1){
-         printf("Stack underflow");
-         exit(1); }
+         printf("Stack underflow\n");
+         exit(1);
+         }
      int value=stack[top];
      top=top-1;
      printf("The Element is removed successfully\n");
@@ -26,7 +27,7 @@ int pop(){
 }
 int peek(){
     if(top==-1) {
-         printf("Stack underflow");
+         printf("Stack underflow\n");
          exit(1);
     }
      return stack[top];
@@ -67,9 +68,11 @@ void main()
             case 5: if(isFull(size)==0)
                      {printf("Stack is full");}
                      else{printf("Stack is not full");}
+                     break;
             case 6: if(isEmpty(size)==0)
                      {printf("Stack is Empty");}
                      else{printf("Stack is not Empty");}
+                     break;
             case 7: exit(0);
             default: printf("wrong choice");
         }
