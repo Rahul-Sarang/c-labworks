@@ -3,26 +3,26 @@
 #include <stdbool.h>
 
 // Define the structure for a node
-typedef struct Node {
+struct Node {
     int data;
     struct Node* link;
-} Node;
+};
 
 // Function to create a new node
-Node* create_node(int data) {
-    Node* node = (Node*) malloc(sizeof(Node));
-    if (node == NULL) {
+struct Node* create_node(int data) {
+    struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));
+    if (new_node == NULL) {
         printf("Memory allocation failed\n");
         return NULL;
     }
-    node->data = data;
-    node->link = NULL;
-    return node;
+    new_node->data = data;
+    new_node->link = NULL;
+    return new_node;
 }
 
 // Function to insert a new node at the front of the linked list
-void InsertBegin(Node** head, int data) {
-    Node* new_node = create_node(data);
+void InsertBegin(struct Node** head, int data) {
+    struct Node* new_node = create_node(data);
     if (new_node == NULL) {
         return;
     }
@@ -32,15 +32,15 @@ void InsertBegin(Node** head, int data) {
 }
 
 // Function to insert a new node at the end of the linked list
-void InsertEnd(Node** head, int data) {
-    Node* new_node = create_node(data);
+void InsertEnd(struct Node** head, int data) {
+    struct Node* new_node = create_node(data);
     if (new_node == NULL) {
         return;
     }
     if (*head == NULL) {
         *head = new_node;
     } else {
-        Node* temp = *head;
+        struct Node* temp = *head;
         while (temp->link != NULL) {
             temp = temp->link;
         }
@@ -50,8 +50,8 @@ void InsertEnd(Node** head, int data) {
 }
 
 // Function to insert a new node at a specific position in the linked list
-void InsertAny(Node** head, int data, int position) {
-    Node* new_node = create_node(data);
+void InsertAny(struct Node** head, int data, int position) {
+    struct Node* new_node = create_node(data);
     if (new_node == NULL) {
         return;
     }
@@ -59,7 +59,7 @@ void InsertAny(Node** head, int data, int position) {
         new_node->link = *head;
         *head = new_node;
     } else {
-        Node* temp = *head;
+        struct Node* temp = *head;
         for (int i = 0; i < position - 1; i++) {
             if (temp->link == NULL) {
                 printf("Position out of range\n");
@@ -74,19 +74,19 @@ void InsertAny(Node** head, int data, int position) {
 }
 
 // Function to delete a node from the front of the linked list
-void Delete1st(Node** head) {
+void Delete1st(struct Node** head) {
     if (*head == NULL) {
         printf("List is empty\n");
         return;
     }
-    Node* temp = *head;
+    struct Node* temp = *head;
     *head = (*head)->link;
     printf("Node %d deleted from the front\n", temp->data);
     free(temp);
 }
 
 // Function to delete a node from the end of the linked list
-void DeleteEnd(Node** head) {
+void DeleteEnd(struct Node** head) {
     if (*head == NULL) {
         printf("List is empty\n");
         return;
@@ -96,7 +96,7 @@ void DeleteEnd(Node** head) {
         free(*head);
         *head = NULL;
     } else {
-        Node* temp = *head;
+        struct Node* temp = *head;
         while (temp->link->link != NULL) {
             temp = temp->link;
         }
@@ -107,18 +107,18 @@ void DeleteEnd(Node** head) {
 }
 
 // Function to delete a node at a specific position in the linked list
-void DeleteAny(Node** head, int position) {
+void DeleteAny(struct Node** head, int position) {
     if (*head == NULL) {
         printf("List is empty\n");
         return;
     }
     if (position == 0) {
-        Node* temp = *head;
+        struct Node* temp = *head;
         *head = (*head)->link;
         printf("Node %d deleted at position %d\n", temp->data, position);
         free(temp);
     } else {
-        Node* temp = *head;
+        struct Node* temp = *head;
         for (int i = 0; i < position - 1; i++) {
             if (temp->link == NULL) {
                 printf("Position out of range\n");
@@ -130,7 +130,7 @@ void DeleteAny(Node** head, int position) {
             printf("Position out of range\n");
             return;
         }
-        Node* node_to_delete = temp->link;
+        struct Node* node_to_delete = temp->link;
         temp->link = temp->link->link;
         printf("Node %d deleted at position %d\n", node_to_delete->data, position);
         free(node_to_delete);
@@ -138,12 +138,12 @@ void DeleteAny(Node** head, int position) {
 }
 
 // Function to display the linked list
-void display(Node* head) {
+void display(struct Node* head) {
     if (head == NULL) {
         printf("List is empty\n");
         return;
     }
-    Node* temp = head;
+    struct Node* temp = head;
     while (temp != NULL) {
         printf("%d -> ", temp->data);
         temp = temp->link;
@@ -153,7 +153,7 @@ void display(Node* head) {
 
 // Main function
 int main() {
-    Node* head = NULL;
+    struct Node* head = NULL;
     int choice;
     while (true) {
         printf("Linked List Menu\n");
